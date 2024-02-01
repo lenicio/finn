@@ -22,7 +22,7 @@
 
   <main>
     <section class="formulario">
-      <form action="" method="get">
+      <form action="./cadastrarReceita.php" method="get">
 
         <label>
           Descrição
@@ -36,13 +36,18 @@
 
         <label>
           Categoria
-          <select>
+          <select name="categoria">
             <option value=""></option>
-            <option value="">Salário</option>
-            <option value="">Bonus</option>
-            <option value="">Prêmio</option>
-            <option value="">Vale Alimentação</option>
+            <option value="salario">Salário</option>
+            <option value="bonus">Bonus</option>
+            <option value="premio">Prêmio</option>
+            <option value="vale">Vale Alimentação</option>
           </select>
+        </label>
+
+        <label>
+          Data
+          <input type="date" name="data_mvto">
         </label>
 
         <button type="submit">Adicionar</button>
