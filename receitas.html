@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Receitas</title>
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul class="rem">
+        <li><a href="#">Receitas</a></li>
+        <li><a href="#">Despesas</a></li>
+        <li><a href="#">Categorias</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="formulario">
+      <form action="" method="get">
+
+        <label>
+          Descrição
+          <input type="text" name="descricao">
+        </label>
+
+        <label>
+          valor
+          <input type="number" name="valor">
+        </label>
+
+        <label>
+          Categoria
+          <select>
+            <option value=""></option>
+            <option value="">Salário</option>
+            <option value="">Bonus</option>
+            <option value="">Prêmio</option>
+            <option value="">Vale Alimentação</option>
+          </select>
+        </label>
+
+        <button type="submit">Adicionar</button>
+
+
+      </form>
+    </section>
+    <section class="tabela"></section>
+  </main>
+</body>
+
+</html>
