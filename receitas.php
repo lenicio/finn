@@ -1,3 +1,14 @@
+<?php
+require "./config.php";
+
+$sql = "SELECT * FROM receitas";
+$sql = $pdo->prepare($sql);
+$sql->execute();
+
+$dados = $sql->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -55,7 +66,30 @@
 
       </form>
     </section>
-    <section class="tabela"></section>
+    <section class="tabela">
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Valor</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($dados as $dado) : ?>
+            <tr>
+              <td><?= $dado['id'] ?></td>
+              <td><?= $dado['descricao'] ?></td>
+              <td><?= $dado['valor'] ?></td>
+              <td><?= $dado['data_mvto'] ?></td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+
+    </section>
   </main>
 </body>
 
