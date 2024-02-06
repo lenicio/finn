@@ -75,15 +75,20 @@ $dados = $sql->fetchAll(PDO::FETCH_ASSOC);
             <th>Descrição</th>
             <th>Valor</th>
             <th>Data</th>
+            <th>Opções</th>
           </tr>
         </thead>
         <tbody>
+
           <?php foreach ($dados as $dado) : ?>
             <tr>
               <td><?= $dado['id'] ?></td>
               <td><?= $dado['descricao'] ?></td>
               <td><?= $dado['valor'] ?></td>
               <td><?= $dado['data_mvto'] ?></td>
+              <td>
+                <a href="./deletar.php?id=<?= $dado['id'] ?>"><i class="fa-solid fa-trash"></i></a>
+              </td>
             </tr>
           <?php endforeach; ?>
         </tbody>
@@ -91,6 +96,8 @@ $dados = $sql->fetchAll(PDO::FETCH_ASSOC);
 
     </section>
   </main>
+  <script src="https://kit.fontawesome.com/561265e797.js" crossorigin="anonymous"></script>
 </body>
+
 
 </html>

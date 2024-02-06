@@ -18,5 +18,5 @@ $sql->bindValue(":categoria_id", 1);
 
 $sql->execute();
 
-header("Location: receitas.html");
+header("Location: receitas.php");
 exit;
