@@ -1,6 +1,14 @@
 <?php
 require "./config.php";
 
+$id = $_GET['id'];
+$sql = "SELECT * FROM receitas WHERE id = :id";
+$sql = $pdo->prepare($sql);
+$sql->bindValue(":id", $id);
+$sql->execute();
+$item = $sql->fetch(PDO::FETCH_ASSOC);
+
+
 $sql = "SELECT * FROM receitas";
 $sql = $pdo->prepare($sql);
 $sql->execute();
@@ -24,7 +32,7 @@ $dados = $sql->fetchAll(PDO::FETCH_ASSOC);
   <header>
     <nav>
       <ul class="rem">
-        <li><a href="#">Receitas</a></li>
+        <li><a href="./receitas.php">Receitas</a></li>
         <li><a href="#">Despesas</a></li>
         <li><a href="#">Categorias</a></li>
       </ul>
@@ -33,22 +41,23 @@ $dados = $sql->fetchAll(PDO::FETCH_ASSOC);
 
   <main>
     <section class="formulario">
-      <form action="./cadastrarReceita.php" method="get">
+      <form action="./confirmarEditarReceita.php" method="get">
+
+        <input type="hidden" name="id" value="<?= $id; ?>">
 
         <label>
           Descrição
-          <input type="text" name="descricao">
+          <input type="text" name="descricao" value="<?= $item['descricao'] ?>">
         </label>
 
         <label>
           valor
-          <input type="number" name="valor">
+          <input type="number" name="valor" value="<?= $item['valor']; ?>">
         </label>
 
         <label>
           Categoria
           <select name="categoria">
-            <option value=""></option>
             <option value="salario">Salário</option>
             <option value="bonus">Bonus</option>
             <option value="premio">Prêmio</option>
@@ -58,10 +67,10 @@ $dados = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         <label>
           Data
-          <input type="date" name="data_mvto">
+          <input type="date" name="data_mvto" value="<?= $item['data_mvto'] ?>">
         </label>
 
-        <button type="submit">Adicionar</button>
+        <button type="submit">Editar</button>
 
 
       </form>
